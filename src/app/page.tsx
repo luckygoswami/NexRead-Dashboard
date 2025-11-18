@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 
 export default async function Home() {
   return (
-    <main className="mx-auto w-[1000px] overflow-auto scrollbar-hide py-5">
+    <main className="col-start-2 overflow-auto scrollbar-hide py-5">
       {/* Banner Section */}
       <Banner />
 
