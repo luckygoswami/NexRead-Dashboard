@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function Navbar() {
   return (
-    <div className="py-5 px-15 flex justify-between border border-blue-100">
+    <div className="px-2 py-4 md:py-5 md:px-15 flex justify-between border-b border-blue-100">
       {/* Logo */}
       <Link
         href={'/'}
@@ -12,7 +12,7 @@ export function Navbar() {
       </Link>
 
       {/* Search */}
-      <div className="relative w-[300px] flex items-center">
+      <div className="relative md:w-100 flex items-center">
         <input
           type="text"
           placeholder="Search books"
