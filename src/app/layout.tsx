@@ -28,7 +28,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
-        <div className="grid grid-cols-[1fr_65vw_1fr]">{children}</div>
+        {/* Main content */}
+        <div className="grid md:grid-cols-[1fr_65vw_1fr]">{children}</div>
         <Footer />
       </body>
     </html>

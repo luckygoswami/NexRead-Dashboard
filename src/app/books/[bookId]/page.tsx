@@ -12,9 +12,9 @@ export default async function BookPage({
   const bookData = data[0];
 
   return (
-    <main className="col-start-2 overflow-auto scrollbar-hide">
+    <main className="col-start-2 overflow-auto scrollbar-hide p-2">
       <BackButton />
-      <div className="grid grid-cols-[1.25fr_2fr] gap-15 px-20">
+      <div className="flex flex-col items-center text-center gap-10 md:text-left md:grid md:grid-cols-[1.25fr_2fr] md:gap-15 md:px-10">
         {/* Book cover */}
         <div className="w-[250px]">
           <Image
