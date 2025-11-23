@@ -15,7 +15,7 @@ export function BookCard({
 }) {
   return (
     <Link href={`books/${id}`}>
-      <div className="w-[200px] h-[350px] rounded-md border border-gray-200 flex flex-col justify-between hover:shadow-lg hover:cursor-pointer">
+      <div className="w-[180px] h-[300px] md:w-[200px] md:h-[350px] rounded-md border border-gray-200 flex flex-col justify-between hover:shadow-lg hover:cursor-pointer">
         <Image
           src={src}
           alt={`${title}`}
