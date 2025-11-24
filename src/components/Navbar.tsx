@@ -1,5 +1,5 @@
-import { Search } from 'lucide-react';
 import Link from 'next/link';
+import { SearchBar } from '@/components';
 
 export function Navbar() {
   return (
@@ -11,17 +11,7 @@ export function Navbar() {
         NexRead
       </Link>
 
-      {/* Search */}
-      <div className="relative md:w-100 flex items-center">
-        <input
-          type="text"
-          placeholder="Search books"
-          className="border border-gray-300 rounded-full w-full pl-5 pr-11 py-2 text-sm"
-        />
-        <button className="rounded-full bg-blue-500 text-white p-1.5 absolute right-2 cursor-pointer">
-          <Search size={17} />
-        </button>
-      </div>
+      <SearchBar />
     </div>
   );
 }
