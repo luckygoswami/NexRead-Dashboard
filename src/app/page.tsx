@@ -1,7 +1,12 @@
 import { Banner, BooksList } from '@/components';
 import { Suspense } from 'react';
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ title?: string }>;
+}) {
+  const { title } = await searchParams;
   return (
     <main className="col-start-2 overflow-auto scrollbar-hide py-5">
       {/* Banner Section */}
@@ -9,7 +14,7 @@ export default async function Home() {
 
       {/* Books list */}
       <Suspense fallback={<div>Loading...</div>}>
-        <BooksList />
+        <BooksList title={title} />
       </Suspense>
     </main>
   );
