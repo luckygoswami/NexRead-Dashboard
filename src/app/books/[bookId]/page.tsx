@@ -1,15 +1,55 @@
 import { BackButton } from '@/components';
 import Image from 'next/image';
 
+const bookCache = new Map<string, Promise<Book | null>>();
+async function fetchBook(bookId: string) {
+  if (bookCache.has(bookId)) return bookCache.get(bookId)!;
+
+  const p = (async () => {
+    try {
+      const res = await fetch(`${process.env.BACKEND_URL}/api/books/${bookId}`);
+      if (!res.ok) return null;
+      const data = (await res.json()) as Book[];
+      return data[0] ?? null;
+    } catch {
+      return null;
+    }
+  })();
+
+  bookCache.set(bookId, p);
+  return p;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ bookId: string }>;
+}) {
+  const bookId = (await params).bookId;
+  const bookData = (await fetchBook(bookId)) as Book;
+  return {
+    title: bookData ? `${bookData.title} | NexRead` : 'NexRead | Book',
+  };
+}
+
 export default async function BookPage({
   params,
 }: {
   params: Promise<{ bookId: string }>;
 }) {
   const bookId = (await params).bookId;
-  const res = await fetch(`${process.env.BACKEND_URL}/api/books/${bookId}`);
-  const data = (await res.json()) as Book[];
-  const bookData = data[0];
+  const bookData = (await fetchBook(bookId)) as Book;
+
+  if (!bookData) {
+    return (
+      <main className="col-start-2 overflow-auto scrollbar-hide p-2">
+        <BackButton />
+        <div className="text-gray-400 font-bold text-lg italic text-center">
+          Book not found.
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="col-start-2 overflow-auto scrollbar-hide p-2">

@@ -40,7 +40,7 @@ export function SearchBar() {
       />
       <button
         onClick={handleSearch}
-        className="rounded-full bg-blue-500 text-white p-1.5 absolute right-2 cursor-pointer">
+        className="rounded-full bg-blue-400 hover:bg-blue-500 text-white p-1.5 absolute right-2 cursor-pointer">
         <Search size={17} />
       </button>
     </div>

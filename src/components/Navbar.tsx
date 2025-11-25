@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SearchBar } from '@/components';
+import Image from 'next/image';
 
 export function Navbar() {
   return (
@@ -7,7 +8,15 @@ export function Navbar() {
       {/* Logo */}
       <Link
         href={'/'}
-        className="text-blue-400 font-bold text-2xl">
+        className="text-blue-500 font-bold text-2xl flex items-center">
+        <Image
+          src={'/nexread_logo.png'}
+          alt="NexRead_logo"
+          width={40}
+          height={40}
+          priority
+          className="rounded-md"
+        />
         NexRead
       </Link>
 
