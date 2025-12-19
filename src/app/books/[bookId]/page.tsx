@@ -78,7 +78,7 @@ export default async function BookPage({
         <div className="flex flex-col gap-3">
           <h1 className="font-bold text-2xl capitalize">{bookData.title}</h1>
           <span className="text-gray-500">
-            By <span className="font-medium">{bookData.author.name}</span>
+            <span className="font-medium">{bookData.author}</span>
           </span>
           <p>{bookData.description}</p>
         </div>

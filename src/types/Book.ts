@@ -1,7 +1,8 @@
 interface Book {
   _id: string;
   title: string;
-  author: {
+  author: string;
+  uploadedBy: {
     _id: string;
     name: string;
   };

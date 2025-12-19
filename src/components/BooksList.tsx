@@ -24,7 +24,7 @@ export async function BooksList({ title }: { title: string | undefined }) {
               key={`${idx}`}
               id={book._id}
               title={book.title}
-              author={book.author.name}
+              author={book.author}
               src={book.coverImage}
             />
           ))}
