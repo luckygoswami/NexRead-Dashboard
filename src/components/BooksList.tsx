@@ -1,7 +1,7 @@
 import { BookCard } from './BookCard';
 
 export async function BooksList({ title }: { title: string | undefined }) {
-  const url = `${process.env.BACKEND_URL}/api/books${
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/books${
     title ? `?title=${encodeURIComponent(title)}` : ''
   }`;
   const res = await fetch(url);

@@ -7,7 +7,9 @@ async function fetchBook(bookId: string) {
 
   const p = (async () => {
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/api/books/${bookId}`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/books/${bookId}`
+      );
       if (!res.ok) return null;
       const data = (await res.json()) as Book[];
       return data[0] ?? null;
