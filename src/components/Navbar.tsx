@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { SearchBar } from '@/components';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 export function Navbar() {
   return (
@@ -20,7 +21,9 @@ export function Navbar() {
         NexRead
       </Link>
 
-      <SearchBar />
+      <Suspense fallback={null}>
+        <SearchBar />
+      </Suspense>
     </div>
   );
 }
